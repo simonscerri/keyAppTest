@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>arqiva</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.min.js"></script>
+
+<!---- start-smoth-scrolling---->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+			});
+		</script>
+ 	<!---- start-smoth-scrolling---->
+
+
+</head>
+<body>
+<!--body-->
+<div id="home" class="top-header">	
+     <div class="container">
+		 <div class="logo">
+			 <a href="index.html"><img src="images/logo.png" alt="" /></a>
+		 </div>			  
+		 <div class="top-menu">
+			 <span class="menu"></span> 					 
+			 <ul>
+				 <li class="active"><a href="#home">TEMPERATURE</a></li>
+				 <li><a href="battery.html">BATTERY</a></li>
+				 <li><a href="graph1.html">TEMPERATURE GRAPH</a></li>
+				 <li><a href="signal.html">SIGNAL STENGTH GRAPH</a></li>
+				 <li><a href="tracker.html">TRACKER</a></li>
+			  </ul>					 
+		 </div>	
+		 <div class="clearfix"> </div>	
+		  <!-- script-for-menu -->
+		 <script>
+				$("span.menu").click(function(){
+					$(".top-menu ul").slideToggle("slow" , function(){
+					});
+				});
+		 </script>
+		 <!-- script-for-menu -->
+		 
+	 </div>
+
+<!---->
+	<div class="banner">
+		 <div class="container">
+			<script>
+			 //alert("retrieving data....");
+				var auto_refresh = setInterval(
+					function (){
+						$.getJSON("http://www.scerritaylor.co.uk/keyapptest/api/request_data.php", function(result){
+							$.each(result, function(i, field){
+								if (i == "timestamp"){
+									$("#"+i).text(field);
+								} else {
+									$("#"+i).text(field + "\xB0C");
+								}
+							});
+						});
+					}, 2500); // refresh rate
+			</script>
+
+			 <div class="banner-info">
+				 <h3>Current Temperature</h3>
+				 <div id="temperature" class="temp_reading"></div>
+				 <h3>Last Update:</h3>
+				 <div id="timestamp" class="last_update"></div>
+				
+				  <div class="clearfix"> </div>	
+			 </div>
+		 </div>
+		 
+	</div>
+</div>	
+
+  <div class="clearfix"> </div>	
+  
+<!---->	
+
+
+
+
+	
+</body>
+</html>

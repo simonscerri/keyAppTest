@@ -1,0 +1,4 @@
+[POST] http://www.scerritaylor.co.uk/test/keyApp/test01.php?device={device}&data={data}&devCheck=arQTeSt
+
+
+https://submit01:Data302@www.gmfisher.com/work/submit01/post_message_01.php?device={device}&time={time}&duplicate={duplicate}&signal={signal}&station={station}&data={data}&avgSignal={avgSignal}&lat={lat}&lng={lng}&rssi={rssi}&devType=GFTDesignEnviroMon01&comment=InitialTests
