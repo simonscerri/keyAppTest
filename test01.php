@@ -5,25 +5,7 @@
 			
 			date_default_timezone_set('Europe/London');
 			
-			function check_host(){
-				if ($_SERVER['SERVER_ADDR']){
-					$localaddress = $_SERVER['SERVER_ADDR'];
-				} else {
-					$localaddress = "0.0.0.0";
-				}
-				$tmp = explode(".", $localaddress);
-				$location = $tmp[1];
-				
-				if ($location == "53"){
-					$post_url = "http://app-cc.arqiva.tv/pay/cross_site_request.php";
-				} else if ($location == "175"){
-					$post_url = "http://app-mh.arqiva.tv/pay/cross_site_request.php";
-				} else {
-					$post_url = "http://app.arqiva.tv/pay/cross_site_request.php";
-				}
-				return $post_url;
-				
-			}
+		
 			
 			function api_request ($url, $fields){	
 				$fields_string="";
